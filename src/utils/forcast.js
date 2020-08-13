@@ -11,7 +11,11 @@ const forcast = (latitude, longitude, callback) => {
         }else if (body.error) {
             callback("Please specify a valid location identifier using the query parameter.", undefined)
         }else {
-            callback(undefined, body.current.weather_descriptions[0] + ", It's currently " + body.current.temperature + " degrees out. It feels like " + body.current.feelslike + " degrees out")
+            callback(
+                undefined, body.current.weather_descriptions[0] + ", It's currently " + body.current.temperature 
+                + " degrees out. It feels like " + body.current.feelslike + " degrees out."
+                + " The humidity is " + body.current.humidity + '%.'
+            )
         }
     })
 }
